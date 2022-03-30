@@ -42,10 +42,10 @@ export default function TextForm (props) {
 
   const copy = ()=>{
 
-    let newText = document.getElementById("myBox");
-    newText.select();
-    navigator.clipboard.writeText(newText.value);
-    document.getSelection().removeAllRanges();
+    // let newText = document.getElementById("myBox");
+    // newText.select();
+    navigator.clipboard.writeText(text);
+    // document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard","success");
 
   }
@@ -75,7 +75,7 @@ export default function TextForm (props) {
         
         <h2>Your Text Summary</h2>
         <p>{text.length === 0 ? 0:text.split(/[ ,]+/).length} words and {text.length} characters</p>
-        <p>{(text.split(/[ ,]+/).length)*0.008} minutes to read this input</p>
+        <p>{(text.length === 0 ? 0:text.split(/[ ,]+/).length)*0.008} minutes to read this input</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter something to preview"}</p>
       

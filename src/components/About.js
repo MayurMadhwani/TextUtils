@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 
-export default function About() {
+export default function About(props) {
 
-    const [myStyle, setMyStyle] = useState({
+    /*const [myStyle, setMyStyle] = useState({
         color: "black",
         backgroundColor: "white"
     })
@@ -24,8 +24,13 @@ export default function About() {
             setBtnTheme("my-3 btn btn-dark");
         }
         
+    }*/
+    
+    const myStyle = {
+        color: props.mode === 'light' ? 'black':'white',
+        backgroundColor: props.mode === 'light'? 'white':'#323232'
     }
-  
+
     return (
 
     <div className="container" style={myStyle}>
@@ -68,9 +73,6 @@ export default function About() {
                 </div>
             </div>
         </div>
-            <div className="container my-3">
-                <button onClick={toggle} type="button" className={btnTheme}>{buttonText}</button>
-            </div>
     </div>
   )
 }
